@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>practica 3</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      img {
+        width: 300px;
+        height: auto;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Antes y después acapulco</h1>
+
+    <!-- Imagen que será cambiada -->
+    <img
+      id="imagen"
+      src="https://acapulco.gob.mx/wp-content/uploads/2015/10/acapulco01.jpg"
+      alt="Imagen 1"
+    />
+
+    <!-- Botones para cambiar la imagen -->
+    <div>
+      <button onclick="cambiarImagen()">Siguiente Imagen</button>
+      <button onclick="regresarImagen()">Regresar Imagen</button>
+    </div>
+
+    <!-- Vinculamos el archivo JavaScript -->
+    <script>
+      // Definimos las rutas de las imágenes
+      const imagenes = [
+        "https://acapulco.gob.mx/wp-content/uploads/2015/10/acapulco01.jpg ",
+        "https://i0.wp.com/lopezdoriga.com/wp-content/uploads/2023/11/acapulco-un-mes-huracan-otis-guerrero-2.jpg?fit=1920%2C1080&ssl=1",
+      ];
+      let indiceImagen = 0;
+
+      // Función para cambiar a la siguiente imagen
+      function cambiarImagen() {
+        indiceImagen = (indiceImagen + 1) % imagenes.length; // Avanza y regresa al inicio
+        document.getElementById("imagen").src = imagenes[indiceImagen];
+      }
+
+      // Función para regresar a la imagen anterior
+      function regresarImagen() {
+        indiceImagen = (indiceImagen - 1 + imagenes.length) % imagenes.length; // Retrocede y vuelve al final
+        document.getElementById("imagen").src = imagenes[indiceImagen];
+      }
+    </script>
+  </body>
+</html>
